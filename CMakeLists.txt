@@ -12,31 +12,26 @@ project(
 # OpenCV include : ${OpenCV_INCLUDE_DIRS}
 # OpenCV Library : ${OpenCV_LIBS}
 
-# ==== 파일들 조사 ====
-add_subdirectory(lib) # 해당 디렉토리 CMakeLists.txt 실행
+# ==== 파일 조사, 타겟 생성 ====
+add_subdirectory(include)
+add_subdirectory(lib)
 add_subdirectory(src)
-
-# ==== 타겟 관련 ====
-include_directories(./include)
-
-# my_library
-add_library(my_library ${LIB_LIST})
-# my_program
-add_executable(my_program ${SRC_LIST})
-target_link_libraries(my_program PUBLIC my_library)
 
 # ==== 운영체제 관련 설정 ====
 if(APPLE)
-    # 타겟 Xcode : Working Directory 설정
+    # Xcode : Working Directory 설정
     set_target_properties(
         my_program PROPERTIES
         XCODE_GENERATE_SCHEME TRUE
         XCODE_SCHEME_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src_io/
     )
 elseif(WIN32)
-    # 타겟 VS : Working Directory 설정
+    # MSVC : Working Directory 설정
     set_target_properties(
         my_program PROPERTIES
         VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src_io/
     )
 endif()
+
+# ==== 프로젝트 설치 ====
+# ...나중에 작성 예정
