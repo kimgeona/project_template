@@ -29,14 +29,14 @@ target_link_libraries(my_program PUBLIC my_library)
 if(APPLE)
     # 타겟 Xcode : Working Directory 설정
     set_target_properties(
-        opencv_program PROPERTIES
+        my_program PROPERTIES
         XCODE_GENERATE_SCHEME TRUE
         XCODE_SCHEME_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src_io/
     )
 elseif(WIN32)
     # 타겟 VS : Working Directory 설정
     set_target_properties(
-        opencv_program PROPERTIES
+        my_program PROPERTIES
         VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src_io/
     )
 endif()
