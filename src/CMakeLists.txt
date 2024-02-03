@@ -3,10 +3,8 @@ file(
     GLOB_RECURSE SRC_LIST CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )
-file(
-    GLOB_RECURSE INCLUDE_LIST CONFIGURE_DEPENDS
-    ${CMAKE_SOURCE_DIR}/include/*.hpp
-)
+# 변수를 상위 스코프로 올린다
+set(SRC_LIST ${SRC_LIST} PARENT_SCOPE)
 
 # my_program
 add_executable(my_program ${SRC_LIST} ${INCLUDE_LIST})
