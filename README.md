@@ -1,6 +1,8 @@
 # project_template
 C/C++ 기반 다양한 프로젝트에서 사용하기위한 cmake 프로젝트 템플릿입니다.
 
+>운영체제(IDE) : MacOS(Xcode), Windows(VisualStudio2022)
+
 ## 프로젝트 구조
 해당 프로젝트의 구조는 다음과 같습니다.
 
