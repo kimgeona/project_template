@@ -19,6 +19,13 @@ add_subdirectory(src)
 
 # ==== 운영체제 관련 설정 ====
 if(APPLE)
+    # Xcode : Apple Framework 만들기
+    set_target_properties(
+        my_library PROPERTIES
+        FRAMEWORK TRUE
+        FRAMEWORK_VERSION ${CMAKE_PROJECT_VERSION} # 프로젝트 버전과 동일하게 가려고 함.
+        MACOSX_FRAMEWORK_IDENTIFIER org.cmake.my_library
+    )
     # Xcode : Working Directory 설정
     set_target_properties(
         my_program PROPERTIES
@@ -35,3 +42,10 @@ endif()
 
 # ==== 프로젝트 설치 ====
 # ...나중에 작성 예정
+
+# ==== 변수 출력 ====
+# include(CMakePrintHelpers)
+# cmake_print_variables(CMAKE_PROJECT_VERSION)
+# cmake_print_variables(INCLUDE_LIST)
+# cmake_print_variables(LIB_LIST)
+# cmake_print_variables(SRC_LIST)

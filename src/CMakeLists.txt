@@ -3,9 +3,13 @@ file(
     GLOB_RECURSE SRC_LIST CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
 )
+file(
+    GLOB_RECURSE INCLUDE_LIST CONFIGURE_DEPENDS
+    ${CMAKE_SOURCE_DIR}/include/*.hpp
+)
 
 # my_program
-add_executable(my_program ${SRC_LIST})
+add_executable(my_program ${SRC_LIST} ${INCLUDE_LIST})
 
 # my_program 의 include 디렉토리
 target_include_directories(my_program PRIVATE ${CMAKE_SOURCE_DIR}/include)
