@@ -7,7 +7,4 @@ file(
 set(LIB_LIST ${LIB_LIST} PARENT_SCOPE)
 
 # my_library
-add_library(my_library ${LIB_LIST} ${INCLUDE_LIST})
-
-# my_library 의 include 디렉토리
-target_include_directories(my_library PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_library(my_library ${INCLUDE_LIST} ${LIB_LIST})

@@ -7,10 +7,10 @@ file(
 set(SRC_LIST ${SRC_LIST} PARENT_SCOPE)
 
 # my_program
-add_executable(my_program ${SRC_LIST} ${INCLUDE_LIST})
-
-# my_program 의 include 디렉토리
-target_include_directories(my_program PRIVATE ${CMAKE_SOURCE_DIR}/include)
+add_executable(my_program ${INCLUDE_LIST} ${SRC_LIST})
 
 # my_program 의 의존성 라이브러리
-target_link_libraries(my_program PRIVATE my_library)
+target_link_libraries(
+    my_program PRIVATE
+    my_library
+)
